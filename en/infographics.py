@@ -6,7 +6,7 @@ import os
 import re
 
 os.system(r"find images/infographics/fulls -name '*.png' -exec sh -c 'convert {} -resize 30% images/infographics/thumbnails/$(basename "+ r'"{}"' + r")' \;")
-#os.system(r"find . -name '*.png' -exec sh -c 'optipng {}' \;")
+os.system(r"find . -name '*.png' -exec sh -c 'optipng {}' \;")
 
 #find './images/infographics/fulls' -name '*.png' -exec sh -c 'convert {} -resize 30% images/infographics/thumbnails/$(basename "{}")' \;
 
