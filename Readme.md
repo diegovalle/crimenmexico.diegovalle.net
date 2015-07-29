@@ -1,0 +1,1 @@
+License: pixelarity.com/license

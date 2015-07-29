@@ -6,17 +6,18 @@
 -->
 <html>
 	<head>
-		<title>Crime Data - Mexico Crime Report</title>
+		<title>Crime by State - Mexico Crime Report</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="alternate" hreflang="es" href="http://crimenmexico.diegovalle.net/es/datos.html" />
+		<link rel="alternate" hreflang="es" href="http://crimenmexico.diegovalle.net/es/states.html" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-				<meta name="description" content="Mexican crime downloadable data" />
+				<meta name="description" content="Mexican crime by state" />
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.css" />
 		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="/assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
 		<style>
+
 		button {
 				background-color: transparent;
 			-webkit-border-radius: 5;
@@ -50,6 +51,10 @@
 		.OrRd .q8-9{fill:rgb(127,0,0)}
 
 		.national-chart svg{
+			background-image: url(http://localhost:8883/assets/css/images/bg01-dark.png);
+			border-radius: 10px;
+		}
+		.line-chart svg{
 			background-image: url(http://localhost:8883/assets/css/images/bg01-dark.png);
 			border-radius: 10px;
 		}
@@ -160,30 +165,11 @@ body.loading {
 body.loading .modal {
     display: block;
 }
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    empty-cells: show;
-    border: 1px solid #cbcbcb;
-    font-family: 'Source Sans Pro';
-    font-size: 18px;
+.mg-x-axis .label, .mg-y-axis .label, .mg-axis .label {
+text-transform: lowercase;
 }
-thead {
-    background-color: #e0e0e0;
-    color: #000;
-    text-align: left;
-    vertical-align: bottom;
-}
-td:first-child, th:first-child {
-    border-left-width: 0;
-}
-td, th {
-    border-left: 1px solid #cbcbcb;
-    border-width: 0 0 0 1px;
-    font-size: inherit;
-    margin: 0;
-    overflow: visible;
-    padding: 0.5em 1em;
+.mg-line1-color {
+    stroke: #060606;
 }
 		</style>
 	</head>
@@ -226,11 +212,11 @@ td, th {
 													<li><a href="#">Veroeros feugiat</a></li>
 												</ul>
 											</li> -->
-											<li><a href="/en/states.html">States</a></li>
+											<li class="current_page_item"><a href="/en/states.html">States</a></li>
 											<li><a href="/en/municipios.html">Municipios</a></li>
 											<li><a href="/en/anomalies.html">Anomalies</a></li>
 											<li><a href="/en/infographics.html">Infographics</a></li>
-											<li class="current_page_item"><a href="/en/datos.html">Data</a></li>
+											<li><a href="/en/datos.html">Data</a></li>
 											</ul>
 									</nav>
 
@@ -244,44 +230,20 @@ td, th {
 						<!-- Wide Content -->
 							<article id="content">
 								<header>
-									<h2>Data</h2>
+									<h2>Crime by Municipio</h2>
 								</header>
-								<table>
-	<thead>
-	<tr><th>File Download</th></tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td><a href="/data/fuero-comun-municipios.csv.gz" onclick="_gaq.push(['_trackEvent', 'Downloads', 'CSV', 'fuero-comun-municipios.csv.zip']);">fuero-comun-municipios.csv.gz</a></td>
-
-	</tr>
-	<tr>
-	<td><a href="/data/fuero-comun-estados.csv.gz" onclick="_gaq.push(['_trackEvent', 'Downloads', 'CSV', 'fuero-comun-estados.csv.zip']);">fuero-comun-estados.csv.gz</a></td>
-
-	</tr>
-	<tr>
-	<td><a href="/data/victimas.csv.gz" onclick="_gaq.push(['_trackEvent', 'Downloads', 'CSV', 'victimas.csv.zip']);">victimas.csv.gz</a></td>
-
-	</tr>
-	</tbody>
-	</table>
-	<hr/>
-<br/>
-
-<p>This information is constantly updated from the <a href="http://secretariadoejecutivo.gob.mx/index.php">Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública</a> </p>
-<p>Source for this program:  <a href="https://github.com/diegovalle/new.crimenmexico">GitHub</a></p>
-
-<p>Population data comes from the <a href="https://github.com/diegovalle/conapo-2010">CONAPO</a>. Monthly population was obtained by linear interpolation<p>
-
-<p>The state and municipio codes come from the INEGI's <a href="http://www.inegi.org.mx/est/contenidos/proyectos/aspectosmetodologicos/clasificadoresycatalogos/catalogo_entidades.aspx">Catálogo de entidades federativas, municipios y localidades</a> del INEGI</p>
-
-<p>All crimes from all categories at both the state and municipality levels are completely available</p>
-<p>Victim data comes from the <a href="http://secretariadoejecutivo.gob.mx/incidencia-delictiva/incidencia-delictiva-victimas.php">special SNSP reports</a></p>
-<p>Back to <a href="http://crimenmexico.diegovalle.net/en/">CrimenMexico</a></p>
-<p><a href="https://twitter.com/diegovalle" class="twitter-follow-button" data-show-count="false">Follow @diegovalle</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
-
-								</article>
+								<div class="select-style" style="
+    margin: 0 auto;margin-bottom:3em;">
+		<select id="crimeSelect">
+<option value="hd">Intentional Homicide</option>
+<option value="sec">Kidnapping</option>
+<option value="ext">Extortion</option>
+<option value="rvcv">Car Robbery with Violence</option>
+<option value="rvsv">Car Robbery withouth Violence</option>
+</select>
+</div>
+								<div class="row" id="small-multiples"></div>
+								<br><p>The charts are ordered from highest to lowest homicide rate during the last available date</p>	</article>
 
 					</div>
 
@@ -313,26 +275,17 @@ td, th {
 
 			</div>
 		</div>
-		<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="left:0px; top:150px;">
-		    <a class="a2a_button_facebook"></a>
-		    <a class="a2a_button_twitter"></a>
-		    <a class="a2a_button_reddit"></a>
-		    <a class="a2a_dd" href="http://www.addtoany.com/share_save"></a>
-		</div>
-
 		<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
 		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', 'UA-100264-7', 'auto');
-		  ga('send', 'pageview');
+			ga('create', 'UA-100264-7', 'auto');
+			ga('send', 'pageview');
 
 		</script>
-
-
 		<!-- Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>
 			<script src="/assets/js/jquery.dropotron.min.js"></script>
@@ -343,6 +296,104 @@ td, th {
 			<script src="/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/assets/js/main.js"></script>
+			<script src='//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js'></script>
+			<script src='//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js'></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.js'></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js'></script>
+	<script>
+	var selected_value = 'hd', muns;
+	var monthNames = [
+		"Jan", "Feb", "Mar",
+		"Apr", "May", "Jun", "Jul",
+		"Aug", "Sep", "Oct",
+		"Nov", "Dec"
+	];
+	var round = d3.format(".1f");
+	var format=d3.time.format('%b %Y')
+	var draw_line_chart = function(){
+		groups=_.groupBy(muns[selected_value], function(x) {return x.name});
+		byrate = _.map(groups, function(g, key) {
+			return { name: key,
+				rate: _.reduce(g, function(m,x) { return (x.rate === null ? m : x.rate); }, 0) };
+			});
+			muns_ordered = _.pluck(_.sortBy(byrate, "rate"), "name").reverse();
 
+			_.map(muns_ordered, function(x) {
+				if (document.getElementById('line' + x.replace(/ |\./g, '')
+				.replace(/,/g, '')) === null) {
+					$('<div  class="3u 12u(mobile)" ><div class ="line-chart" id="'+ 'line' + x.replace(/ |\./g, '')
+					.replace(/,/g, '') +'"></div></div>').appendTo('#small-multiples');
+				}
+			});
+			$('.line-chart').each(function(index, obj){
+                $(obj).attr('id', 'line' + muns_ordered[index].replace(/ |\./g, '')
+								.replace(/,/g, ''));
+            });
+
+
+			var filterCrime = function(data, name) {
+				data = _.filter(data, { 'name': name });
+				if (typeof(data[0].date) !== 'object')
+				  data = MG.convert.date(data, 'date');
+				return(data)
+			}
+			max_rate = _.max(muns[selected_value], 'rate')['rate'];
+
+
+			var line_chart = function(data, title, target) {
+				var line_options = {
+					height: 150,
+					max_y: max_rate,
+					area: false,
+					full_width: true,
+					left: 60,
+					buffer: 0,
+					// width:281,
+					//missing_is_hidden: true,
+					interpolate: "linear",
+					x_accessor: 'date',
+					y_accessor: 'rate',
+					small_text: true,
+					xax_count: 3,
+					xax_format: d3.time.format('%b'),
+					y_extended_ticks: true,
+					y_label: 'annualized rate',
+					mouseover: function(d, i) {
+						var date = new Date(d.date);
+						var day = d.date.getDate();
+						var monthIndex = d.date.getMonth();
+						var year = d.date.getFullYear();
+						d3.select("#line" + target.replace(/ |\./g, '')
+						.replace(/,/g, '') + ' svg .mg-active-datapoint')
+						.text(monthNames[monthIndex] + '-' + year + ', rate: ' + round(d.rate) + ', count: ' + d.count);
+					},
+				};
+				line_options.data = line_values;
+				line_options.title = title;
+				line_options.target = "#line" + target.replace(/ |\./g, '')
+				.replace(/,/g, '');
+				MG.data_graphic(line_options);
+			}
+			//console.time("concatenation");
+			_.forEach(muns_ordered, function(x) {
+				line_values = filterCrime(muns[selected_value], x);
+				line_chart(line_values, x, x)
+				return
+			});
+	}
+	d3.json('/assets/json/states_sm.json', function(data) {
+		muns = data;
+		draw_line_chart();
+
+
+		});
+
+		$('#crimeSelect').on('change', function() {
+			selected_value = this.value;
+			$("body").addClass("loading");
+			draw_line_chart();
+			$("body").removeClass("loading");
+		});
+	</script>
 	</body>
 </html>

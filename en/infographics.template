@@ -6,12 +6,12 @@
 -->
 <html>
 	<head>
-		<title>Crime Data - Mexico Crime Report</title>
+		<title>Infographics - Mexico Crime Report</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="alternate" hreflang="es" href="http://crimenmexico.diegovalle.net/es/datos.html" />
+		<link rel="alternate" hreflang="es" href="http://crimenmexico.diegovalle.net/es/infographics.html" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-				<meta name="description" content="Mexican crime downloadable data" />
+				<meta name="description" content="Infographics of Mexican crime" />
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.css" />
 		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="/assets/css/main.css" />
@@ -229,8 +229,8 @@ td, th {
 											<li><a href="/en/states.html">States</a></li>
 											<li><a href="/en/municipios.html">Municipios</a></li>
 											<li><a href="/en/anomalies.html">Anomalies</a></li>
-											<li><a href="/en/infographics.html">Infographics</a></li>
-											<li class="current_page_item"><a href="/en/datos.html">Data</a></li>
+											<li class="current_page_item"><a href="/en/infographics.html">Infographics</a></li>
+											<li><a href="/en/datos.html">Data</a></li>
 											</ul>
 									</nav>
 
@@ -238,52 +238,18 @@ td, th {
 
 					</div>
 
-				<!-- Wide Content Wrapper -->
-					<div class="wrapper">
-
-						<!-- Wide Content -->
-							<article id="content">
+					<!-- Portfolio Wrapper -->
+						<div class="wrapper">
+							<section id="portfolio-preview">
 								<header>
-									<h2>Data</h2>
+									<h2>Infographics</h2>
+									<span class="byline">Charts to explain the drug war</span>
 								</header>
-								<table>
-	<thead>
-	<tr><th>File Download</th></tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td><a href="/data/fuero-comun-municipios.csv.gz" onclick="_gaq.push(['_trackEvent', 'Downloads', 'CSV', 'fuero-comun-municipios.csv.zip']);">fuero-comun-municipios.csv.gz</a></td>
 
-	</tr>
-	<tr>
-	<td><a href="/data/fuero-comun-estados.csv.gz" onclick="_gaq.push(['_trackEvent', 'Downloads', 'CSV', 'fuero-comun-estados.csv.zip']);">fuero-comun-estados.csv.gz</a></td>
+								{{INFOGRAPHICS}}
 
-	</tr>
-	<tr>
-	<td><a href="/data/victimas.csv.gz" onclick="_gaq.push(['_trackEvent', 'Downloads', 'CSV', 'victimas.csv.zip']);">victimas.csv.gz</a></td>
-
-	</tr>
-	</tbody>
-	</table>
-	<hr/>
-<br/>
-
-<p>This information is constantly updated from the <a href="http://secretariadoejecutivo.gob.mx/index.php">Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública</a> </p>
-<p>Source for this program:  <a href="https://github.com/diegovalle/new.crimenmexico">GitHub</a></p>
-
-<p>Population data comes from the <a href="https://github.com/diegovalle/conapo-2010">CONAPO</a>. Monthly population was obtained by linear interpolation<p>
-
-<p>The state and municipio codes come from the INEGI's <a href="http://www.inegi.org.mx/est/contenidos/proyectos/aspectosmetodologicos/clasificadoresycatalogos/catalogo_entidades.aspx">Catálogo de entidades federativas, municipios y localidades</a> del INEGI</p>
-
-<p>All crimes from all categories at both the state and municipality levels are completely available</p>
-<p>Victim data comes from the <a href="http://secretariadoejecutivo.gob.mx/incidencia-delictiva/incidencia-delictiva-victimas.php">special SNSP reports</a></p>
-<p>Back to <a href="http://crimenmexico.diegovalle.net/en/">CrimenMexico</a></p>
-<p><a href="https://twitter.com/diegovalle" class="twitter-follow-button" data-show-count="false">Follow @diegovalle</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
-
-								</article>
-
-					</div>
+							</section>
+						</div>
 
 					<!-- Footer Wrapper -->
 						<div id="footer-wrapper" class="wrapper">
@@ -343,6 +309,11 @@ td, th {
 			<script src="/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/assets/js/main.js"></script>
-
+			<script src="/assets/js/jquery.lazyload.js"></script>
+			<script>
+			$("img.lazy").lazyload({
+    threshold : 200
+});
+</script>
 	</body>
 </html>
