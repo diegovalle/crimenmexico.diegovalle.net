@@ -9,8 +9,6 @@ def clean(lang, t):
     locale.setlocale(locale.LC_TIME, t)
     os.system(r"find " + lang + "images/infographics/fulls -name '*.png' -exec sh -c 'convert {} -resize 30% " + lang + r"images/infographics/thumbnails/$(basename "+ r'"{}"' + r")' \;")
 
-    os.system(r"find . -name '*.png' -exec sh -c 'optipng {}' \;")
-
     # find './images/infographics/fulls' -name '*.png' -exec sh -c 'convert {} -resize 30% images/infographics/thumbnails/$(basename "{}")' \;
 
     files_mun = glob.glob(lang + "images/infographics/thumbnails/mun*.png")
@@ -71,3 +69,4 @@ def clean(lang, t):
 
 clean('en/', "C")
 clean('es/', 'es_ES.UTF-8')
+os.system(r"find . -name '*.png' -exec sh -c 'optipng {}' \;")
