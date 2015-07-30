@@ -51,11 +51,11 @@
                 .OrRd .q8-9{fill:rgb(127,0,0)}
 
                 .national-chart svg{
-                        background-image: url(http://localhost:8883/assets/css/images/bg01-dark.png);
+                        background-image: url(http://localhost:8883/assets/css/images/bg01-brown.png);
                         border-radius: 10px;
                 }
                 .line-chart svg{
-                        background-image: url(http://localhost:8883/assets/css/images/bg01-dark.png);
+                        background-image: url(http://localhost:8883/assets/css/images/bg01-brown.png);
                         border-radius: 10px;
                 }
                 .d3-tip {
@@ -230,7 +230,7 @@ text-transform: lowercase;
                                                 <!-- Wide Content -->
                                                         <article id="content">
                                                                 <header>
-                                                                        <h2>Crime by Municipio</h2>
+                                                                        <h2>Crime by State</h2>
                                                                 </header>
                                                                 <div class="select-style" style="
     margin: 0 auto;margin-bottom:3em;">
@@ -243,7 +243,7 @@ text-transform: lowercase;
 </select>
 </div>
                                                                 <div class="row" id="small-multiples"></div>
-                                                                <br><p>The charts are ordered from highest to lowest homicide rate during the last available date</p>   </article>
+                                                                <br><br><hr><p>The charts are ordered from highest to lowest homicide rate during the last available date. For intentional homicides, kidnappings, and extortions the counts refer to number of victims, for car robberies the counts refer to police reports (<i>averiguaciones previas</i> which may contain more than one victim)</p>   </article>
 
                                         </div>
 
@@ -300,12 +300,12 @@ text-transform: lowercase;
                         <script src='//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js'></script>
         <script src='//cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.js'></script>
         <script src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js'></script>
-<script>
+        <script>
 
              var annualized_rate = 'annualized rate',
              rate_text = ', rate: ',
              count_text = ', count: ';
-</script>
+        </script>
         <script>
         var selected_value = 'hd', muns;
         var monthNames = [

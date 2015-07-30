@@ -178,21 +178,21 @@ License: pixelarity.com/license
              background-color: #7b6824;
          }
          .features {
-             fill: #9f794c;
+             fill: #c7b470;
              /* color: black; */
              stroke: black;
              stroke-width: .5px;
          }
          .bubble {
-             fill-opacity: .5;
+             fill-opacity: .6;
              stroke: #fff;
-             stroke-width: .5px;
-             fill: #e34a33;
+             stroke-width: .2px;
+             fill: #DC0E0E;
          }
          #small-multiples-hom svg ,#small-multiples-rvcv svg,
          #small-multiples-rvsv svg, #small-multiples-lesions svg,
          #small-multiples-ext svg, #small-multiples-kidnapping svg{
-             background-image: url(http://localhost:8883/assets/css/images/bg01-dark.png);
+             background-image: url(http://localhost:8883/assets/css/images/bg01-brown.png);
              border-radius: 10px;
          }
          .mg-x-axis .label, .mg-y-axis .label, .mg-axis .label {
@@ -222,7 +222,7 @@ License: pixelarity.com/license
 
 
                         <h2 style="padding-top: 2em;
-                                   text-align: center;">All municipios with a crime rate anomaly during the last available date</h2>
+                                   text-align: center;">All municipios with a crime rate spike during the last available date</h2>
 
 
 
@@ -379,8 +379,25 @@ License: pixelarity.com/license
                 <div id="banner-wrapper" class="wrapper">
                     <!-- Banner --><section id="banner">
                     <h2>Explanation</h2>
-                    <p style="text-align:left;">Detecting municipios with unusual number of crimes should be the cornerstone of any crime fighting strategy.
-                        This website helps monitor crime spikes so that the Mexican government can take prompt action (LOL)</p>
+                    <p style="text-align:left;">Detecting municipios
+                        with an unusual number of crimes should be the
+                        cornerstone of any crime fighting strategy.
+                        The charts help monitor crime spikes in
+                        each of the more than 2,400 Mexican municipios
+                        for selected crimes so that the Mexican
+                        government can take prompt action (LOL). Crime spikes are only monitored for the last month available in the dataset, but you can
+                        consult historical information from the <a href="/en/inforgraphics.html">infographics page</a>.
+                    </p><p style="text-align:left;">Both
+                        positive and negative trends are detected and
+                        should be obvious from the charts. Some
+                        municipalities incorrectly report missing
+                        values as zero, since it's hard to figure out
+                        which values are truly zero or simply missing,
+                        and I believe false positives are less costly
+                        than false negatives, I didn't adjust for this.
+                        This are point-in-time anomalous
+                        data points, not the most violent
+                        municipalities</p>
                     </section></div>
 
 
@@ -490,7 +507,10 @@ License: pixelarity.com/license
                      return(data)
                  }
                  max_rate = _.max(muns[crime_type], 'rate')['rate'];
-
+                 var markers = [{
+                     'date': new Date('Mon Jun 01 2015 00:00:00 GMT-0600 (CST)'),
+                     'label': 'Anomaly'
+                 }];
 
                  var line_chart = function(data, title, target) {
                      var line_options = {
@@ -541,7 +561,7 @@ License: pixelarity.com/license
              d3.json('/assets/json/cities.json', function(cities) {
 
                  draw_map = function(id, crime) {
-                     if (cities[crime].length === 0) {
+                     if (typeof(cities[crime]) === "undefined") {
                          return
                      };
                      var selection = d3.select(id);
@@ -632,27 +652,27 @@ License: pixelarity.com/license
          d3.json('/assets/json/anomalies.json', function(data) {
              muns = data;
              if (muns['hom'].length !== 0) {
-                 d3.select('#hom').text('Intentional Homicides');
+                 d3.select('#hom').text('Intentional Homicides').style('padding', '10px');
                  draw_line_chart('hom', '#small-multiples-hom');
              }
              if (muns['rvcv'].length !== 0) {
-                 d3.select('#rvcv').text('Car Robbery with Violence');
+                 d3.select('#rvcv').text('Car Robbery with Violence').style('padding', '10px');
                  draw_line_chart('rvcv', '#small-multiples-rvcv');
              }
              if (muns['rvsv'].length !== 0) {
-                 d3.select('#rvsv').text('Car Robbery without Violence');
+                 d3.select('#rvsv').text('Car Robbery without Violence').style('padding', '10px');
                  draw_line_chart('rvsv', '#small-multiples-rvsv');
              }
              if (muns['lesions'].length !== 0) {
-                 d3.select('#lesions').text('Intentional Lesions');
+                 d3.select('#lesions').text('Intentional Lesions').style('padding', '10px');
                  draw_line_chart('lesions', '#small-multiples-lesions');
              }
              if (muns['kidnapping'].length !== 0) {
-                 d3.select('#kidnapping').text('Kidnappings');
+                 d3.select('#kidnapping').text('Kidnappings').style('padding', '10px');
                  draw_line_chart('kidnapping', '#small-multiples-kidnapping');
              }
              if (muns['ext'].length !== 0) {
-                 d3.select('#ext').text('Extortions');
+                 d3.select('#ext').text('Extortions').style('padding', '10px');
                  draw_line_chart('ext', '#small-multiples-ext');
              }
 

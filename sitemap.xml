@@ -4,15 +4,15 @@
 
 <url>
   <loc>http://crimenmexico.diegovalle.net/en/</loc>
-<xhtml:link 
+<xhtml:link
                  rel="alternate"
-                 hreflang="ed"
-                 href="http://crimenmexico.diegovalle.net/ed/"
+                 hreflang="es"
+                 href="http://crimenmexico.diegovalle.net/es/"
                  />
 </url>
 <url>
   <loc>http://crimenmexico.diegovalle.net/en/municipios.html</loc>
-<xhtml:link 
+<xhtml:link
                  rel="alternate"
                  hreflang="es"
                  href="http://crimenmexico.diegovalle.net/es/municipios.html"
@@ -20,15 +20,31 @@
 </url>
 <url>
   <loc>http://crimenmexico.diegovalle.net/en/datos.html</loc>
-<xhtml:link 
+<xhtml:link
                  rel="alternate"
                  hreflang="es"
                  href="http://crimenmexico.diegovalle.net/es/datos.html"
                  />
 </url>
 <url>
+  <loc>http://crimenmexico.diegovalle.net/en/states.html</loc>
+<xhtml:link
+                 rel="alternate"
+                 hreflang="es"
+                 href="http://crimenmexico.diegovalle.net/es/states.html"
+                 />
+</url>
+<url>
+  <loc>http://crimenmexico.diegovalle.net/en/anomalies.html</loc>
+<xhtml:link
+                 rel="alternate"
+                 hreflang="es"
+                 href="http://crimenmexico.diegovalle.net/es/anomalies.html"
+                 />
+</url>
+<url>
   <loc>http://crimenmexico.diegovalle.net/es/</loc>
-<xhtml:link 
+<xhtml:link
                  rel="alternate"
                  hreflang="en"
                  href="http://crimenmexico.diegovalle.net/en/"
@@ -36,7 +52,7 @@
 </url>
 <url>
   <loc>http://crimenmexico.diegovalle.net/es/municipios.html</loc>
-<xhtml:link 
+<xhtml:link
                  rel="alternate"
                  hreflang="en"
                  href="http://crimenmexico.diegovalle.net/en/municipios.html"
@@ -44,11 +60,28 @@
 </url>
 <url>
   <loc>http://crimenmexico.diegovalle.net/es/datos.html</loc>
-<xhtml:link 
+<xhtml:link
                  rel="alternate"
                  hreflang="en"
                  href="http://crimenmexico.diegovalle.net/en/datos.html"
                  />
 </url>
+<url>
+  <loc>http://crimenmexico.diegovalle.net/es/states.html</loc>
+<xhtml:link
+                 rel="alternate"
+                 hreflang="en"
+                 href="http://crimenmexico.diegovalle.net/en/states.html"
+                 />
+</url>
+<url>
+  <loc>http://crimenmexico.diegovalle.net/es/anomalies.html</loc>
+<xhtml:link
+                 rel="alternate"
+                 hreflang="en"
+                 href="http://crimenmexico.diegovalle.net/en/anomalies.html"
+                 />
+</url>
+
 
 </urlset>

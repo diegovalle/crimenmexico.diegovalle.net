@@ -92,7 +92,7 @@ License: pixelarity.com/license
          .OrRd .q8-9{fill:rgb(127,0,0)}
 
          .national-chart svg{
-             background-image: url(http://localhost:8883/assets/css/images/bg01-dark.png);
+             background-image: url(http://localhost:8883/assets/css/images/bg01-blue.png);
              border-radius: 10px;
          }
          .d3-tip {
@@ -282,18 +282,18 @@ License: pixelarity.com/license
                                     <div class="6u 12u(mobile) national-chart"><div id="nat_rvsv"></div></div>
 
                                 </div>
-                                <p>You can click or hover over the map to show that state's crime information</p>
+                                <p>You can click or hover over the map to show a state's crime information</p>
                             </section>
                         </div>
                     </div>
 
 
                 </div>
-                <div id="banner-wrapper" class="wrapper">
+                <div id="bnner-wrapper" class="wrapper">
                     <!-- Banner --><section id="banner">
                     <h2>Official Crime Data</h2>
                     <p style="text-align:left;">Each month the <a href="http://secretariadoejecutivo.gob.mx/index.php">Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública</a>
-                        publishes crime information on its website. This website downloads and processes the data.</p><br>
+                        publishes crime information on its website. This website downloads, processes the data, and presents it in an easy to interpret format.</p><br>
                     <p style="text-align:left;">
                         Kidnappings, homicides, and extortions refer to victims; car robberies to police reports. Since January 2015 kidnappings include victims at the
                         federal level. Guerrero misreports the number of police reports as if they were the number of victims.
@@ -308,8 +308,8 @@ License: pixelarity.com/license
                                 <span class="byline">Charts to explain the drug war</span>
                             </header>
                             <div class="row">
-                                <div class="6u 12u(mobile)"><a href="images/infographics/fulls/infographic_jun_2015.png" class=" fit"><img src="images/infographics/thumbnails/infographic_jun_2015.png" alt=""></a></div>
-                                <div class="6u 12u(mobile)"><a href="images/infographics/fulls/municipios_jun_2015.png" class=" fit"><img src="images/infographics/thumbnails/municipios_jun_2015.png" alt=""></a></div>
+                                <div class="6u 12u(mobile)"><a href="/en/images/infographics/fulls/infographic_jun_2015.png" class="fit"><img src="/en/images/infographics/thumbnails/infographic_jun_2015.png" alt=""></a></div>
+                                <div class="6u 12u(mobile)"><a href="/en/images/infographics/fulls/municipios_jun_2015.png" class=" fit"><img src="/en/images/infographics/thumbnails/municipios_jun_2015.png" alt=""></a></div>
                             </div>
                             <footer>
                                 <a href="infographics.html" class="button button-alt">View More Infographics</a>
@@ -328,7 +328,7 @@ License: pixelarity.com/license
                                             <span class="byline">All municipios with crime rates outside the normal range</span>
                                         </header>
                                         <p>Detecting municipios with unusual number of crimes should be the cornerstone of any crime fighting strategy.
-                                            This website helps monitor crime spikes so that the Mexican government can take prompt action (LOL)</p>
+                                            This website helps monitor crime spikes so that the Mexican government can take prompt action (LOL).</p>
                                         <footer>
                                             <a href="anomalies.html" class="button">Learn More</a>
                                         </footer>
@@ -337,10 +337,11 @@ License: pixelarity.com/license
                                 <div class="6u 12u(mobile)">
                                     <section>
                                         <header>
-                                            <h2>Main Mexican Municipios</h2>
-                                            <span class="byline"></span>
+                                            <h2>Crime by City</h2>
+                                            <span class="byline">Crime in the most important Mexican municipios</span>
                                         </header>
-                                        <p>Lorem ipsum Integer lacinia turpis egestas dui luctus sed lacinia diam sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.turpis egestas dui luctus sed lacinia diam sollicitudin lorem sed habitant morbi.</p>
+                                        <p>Time series of crime in the large Mexican municipios since 2011. Where is crime declining? Where is crime increasing?
+Don't believe anything the government tells you until you check out this website.</p>
                                         <footer>
                                             <a href="municipios.html" class="button">Learn More</a>
                                         </footer>
@@ -408,8 +409,8 @@ License: pixelarity.com/license
          var homicidio_doloso = 'Intentional Homicide - ',
              secuestro = 'Kidnapping - ',
              extorsion = 'Extortion - ',
-             rvcv = 'Car Robbery with Violence - ',
-             rvsv = 'Car Robbery without Violence - ',
+             rvcv = 'Car Robbery W/ Violence - ',
+             rvsv = 'Car Robbery W/O Violence - ',
              national_text = 'National',
              annualized_rate = 'annualized rate',
              rate_text = ', rate: ',
@@ -459,17 +460,17 @@ License: pixelarity.com/license
                  area: false,
                  interpolate: "linear",
                  height: 180,
-                 width:275,
+width: 275,
                  full_width: true,
                  linked: true,
-                 right: 10,
-                 left: 60,
+                 right:10,
+                 left: 77,
                  top: 25,
                  buffer: 0,
                  target: target,
                  y_extended_ticks: true,
                  show_secondary_x_label: false,
-                 small_text: true,
+                 small_text: false,
                  x_accessor: 'date',
                  y_accessor: 'rate',
                  xax_count: 2,
@@ -622,7 +623,7 @@ License: pixelarity.com/license
          //d3.select(window).on('resize', resize);
          d3.select('#reset').on('click', function(d) {
              create_national_charts();
-             d3.select("#crime_charts").text("National")
+             d3.select("#crime_charts").text(national_text)
                  d3.select("#nat_" + 'hd' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
                  d3.select("#nat_" + 'ext' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
                  d3.select("#nat_" + 'sec' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
