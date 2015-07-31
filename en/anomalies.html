@@ -431,6 +431,13 @@ License: pixelarity.com/license
 
             </div>
         </div>
+         <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="left:0px; top:150px;">
+                    <a class="a2a_button_facebook"></a>
+                    <a class="a2a_button_twitter"></a>
+                    <a class="a2a_button_reddit"></a>
+                    <a class="a2a_dd" href="http://www.addtoany.com/share_save"></a>
+                </div>
+
         <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
         <script>
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -469,6 +476,12 @@ License: pixelarity.com/license
              rate_text = ', rate: ',
              count_text = ', count: ',
              rate = "Rate:", count = "Count:", pop = "Population:";
+         var int_homicide='Intentional Homicides',
+             crwv = 'Car Robbery with Violence',
+             crwov = 'Car Robbery without Violence',
+             int_lesions = 'Intentional Lesions',
+             kidnappings = 'Kidnappings',
+             extortions = 'Extortions';
         </script>
         <script>
          var selected_value = 'hd', muns;
@@ -653,27 +666,27 @@ License: pixelarity.com/license
          d3.json('/assets/json/anomalies.json', function(data) {
              muns = data;
              if (muns['hom'].length !== 0) {
-                 d3.select('#hom').text('Intentional Homicides').style('padding', '10px');
+                 d3.select('#hom').text(int_homicide).style('padding', '10px');
                  draw_line_chart('hom', '#small-multiples-hom');
              }
              if (muns['rvcv'].length !== 0) {
-                 d3.select('#rvcv').text('Car Robbery with Violence').style('padding', '10px');
+                 d3.select('#rvcv').text(crwv).style('padding', '10px');
                  draw_line_chart('rvcv', '#small-multiples-rvcv');
              }
              if (muns['rvsv'].length !== 0) {
-                 d3.select('#rvsv').text('Car Robbery without Violence').style('padding', '10px');
+                 d3.select('#rvsv').text(crwov).style('padding', '10px');
                  draw_line_chart('rvsv', '#small-multiples-rvsv');
              }
              if (muns['lesions'].length !== 0) {
-                 d3.select('#lesions').text('Intentional Lesions').style('padding', '10px');
+                 d3.select('#lesions').text(int_lesions).style('padding', '10px');
                  draw_line_chart('lesions', '#small-multiples-lesions');
              }
              if (muns['kidnapping'].length !== 0) {
-                 d3.select('#kidnapping').text('Kidnappings').style('padding', '10px');
+                 d3.select('#kidnapping').text(kidnappings).style('padding', '10px');
                  draw_line_chart('kidnapping', '#small-multiples-kidnapping');
              }
              if (muns['ext'].length !== 0) {
-                 d3.select('#ext').text('Extortions').style('padding', '10px');
+                 d3.select('#ext').text(extortions).style('padding', '10px');
                  draw_line_chart('ext', '#small-multiples-ext');
              }
 
