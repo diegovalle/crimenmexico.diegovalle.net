@@ -6,17 +6,78 @@
 -->
 <html>
         <head>
-                <title>Crime by Municipio - Mexico Crime Report</title>
+                <title>Infographics - Mexico Crime Report</title>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="alternate" hreflang="es" href="http://crimenmexico.diegovalle.net/es/municipios.html" />
+                <link rel="alternate" hreflang="es" href="http://crimenmexico.diegovalle.net/es/infographics.html" />
                 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-                                <meta name="description" content="Mexican crime by municipio" />
+                                <meta name="description" content="Infographics of Mexican crime" />
                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.css" />
                 <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
                 <link rel="stylesheet" href="/assets/css/main.css" />
+                <link rel="stylesheet/less" type="text/css" href="/assets/less/styles.less" />
+                <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.3.1/less.min.js" type="text/javascript"></script>
                 <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
                 <link rel="stylesheet" href="/assets/css/crimenmexico.css" />
+                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.5/leaflet.css" />
+                 <!--[if lte IE 8]>
+                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.5/leaflet.ie.css" />
+                 <![endif]-->
+                 <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.5/leaflet.min.js"></script>
+<style>
+input {
+    height: 2em;
+ }
+.crosslet svg g.crosslet_geometry path {
+stroke:black;
+fill-opacity: .8;
+}
+.crosslet svg .hover rect {
+fill-opacity: 1;
+fill: #000;
+}
+.crosslet svg .hover text {
+fill:white
+}
+.crosslet svg g.crosslet_geometry path:hover{
+stroke:black;
+//stroke-width:1.2px;
+fill-opacity: 1;
+}
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: #000;
+    //background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    color: #fff;
+}
+.info h4 {
+    font: 18px Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 0 0 5px;
+    color: #fff;
+}
+
+svg.leaflet-zoom-animated {
+z-index:-9999;
+}
+   div.tooltip {
+                        position: absolute;
+                          text-align: left;
+                        z-index: 9999;
+                        padding: 8px;
+                        font: 12px sans-serif;
+                        background: black;
+                        color: white;
+                        border: solid 1px #999;
+                        border-radius: 5px;
+                }
+#hom-map {
+    height:600px;
+ }
+</style>
         </head>
         <body class="no-sidebar">
                 <div id="page-wrapper">
@@ -58,7 +119,11 @@
                                                                                                 </ul>
                                                                                         </li> -->
                                                                                         <li><a href="/en/states.html">States</a></li>
-                                                                                        <li class="current_page_item"><a href="/en/municipios.html">Municipios</a></li>
+                                                                                        <li class="current_page_item"><a href="#">Municipios</a>
+                                                                                        <ul>
+                                                                                            <li><a href="/en/municipios-map.html">Map</a></li>
+                                                                                            <li><a href="/en/municipios.html">Time Series</a></li>
+                                                                                        </ul></li>
                                                                                         <li><a href="/en/anomalies.html">Anomalies</a></li>
                                                                                         <li><a href="/en/infographics.html">Infographics</a></li>
                                                                                         <li><a href="/en/datos.html">Data</a></li>
@@ -69,30 +134,20 @@
 
                                         </div>
 
-                                <!-- Wide Content Wrapper -->
-                                        <div class="wrapper">
-
-                                                <!-- Wide Content -->
-                                                        <article id="content">
+                                        <!-- Portfolio Wrapper -->
+                                                <div class="wrapper">
+                                                        <section id="portfolio-preview">
                                                                 <header>
-                                                                        <h2>Crime in the Main Municipios</h2>
+                                                                        <h2>Map of homicide in Mexico during the last 6 months</h2>
+                                                                       <!-- <span class="byline">Charts to explain the drug war</span>-->
                                                                 </header>
-                                                                <div class="select-style" style="
-    margin: 0 auto;margin-bottom:3em;">
-                <select id="crimeSelect">
-<option value="hd">Intentional Homicide</option>
-<option value="sec">Kidnapping</option>
-<option value="ext">Extortion</option>
-<option value="rvcv">Car Robbery with Violence</option>
-<option value="rvsv">Car Robbery without Violence</option>
-</select>
-</div>
-                                                                <div class="row" id="small-multiples"></div>
-                                                                <br><br><hr><p>All counts refer to police reports (<i>averiguaciones previas</i> which may contain more than one victim) since that is the only information available at the municipio level.<br> The charts include all municipios with more than 500,000 persons plus Gomez Palacio, Chalco, Venustiano Carranza,
-                                                                        Mazatlán, Ahome, Piedras Negras, Chilpancingo, Boca del Rio, Tampico, Tecomán, Colima, Villa de Álvarez, Manzanillo, Hidalgo del Parral, Iguala,
-                                                                        Matamoros, Nuevo Laredo, Zacatecas, Fresnillo, Tepic, La Paz, Apatzingán, Lázaro Cardenas, and Uruapán because of their strategic
-                                                                        importance to the drug trade. The charts are ordered from highest to lowest homicide rate during the last month with available data, which may not be same for all municipios.
-                                        </div>
+                                                                <div class="row">
+                                                                    <div class="12u 12u(mobile)" ><div id="hom-map"></div></div>
+                                </div>
+
+                                                        </section>
+                                                        <p>The color of the circles corresponds to the homicide rate and the size to the number of homicide reports (which may refer tomore than one victim). You can interactively filter the municipios shown on the map based on their homicide rates by using the histogram widget in the top right corner of the map. All rates shown on the map are annualized, but some municipios don't have date available for the whole six months, if you hover over the circle a tooltip will show the number of crime/months the municipio reported. Some municipios report their homicide counts as zero when in fact it should be a missing value</p>
+                                                </div>
 
                                         <!-- Footer Wrapper -->
                                                 <div id="footer-wrapper" class="wrapper">
@@ -123,7 +178,7 @@
 
                         </div>
                 </div>
- <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="left:0px; top:150px;">
+                <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="left:0px; top:150px;">
                     <a class="a2a_button_facebook"></a>
                     <a class="a2a_button_twitter"></a>
                     <a class="a2a_button_reddit"></a>
@@ -132,15 +187,17 @@
 
                 <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
                 <script>
-                        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-                        ga('create', 'UA-100264-7', 'auto');
-                        ga('send', 'pageview');
+                  ga('create', 'UA-100264-7', 'auto');
+                  ga('send', 'pageview');
 
                 </script>
+
+
                 <!-- Scripts -->
                         <script src="/assets/js/jquery.min.js"></script>
                         <script src="/assets/js/jquery.dropotron.min.js"></script>
@@ -151,110 +208,80 @@
                         <script src="/assets/js/util.js"></script>
                         <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
                         <script src="/assets/js/main.js"></script>
-                        <script src='//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js'></script>
-                        <script src='//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js'></script>
+                       <script src='//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js'></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js'></script>
         <script src='//cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.js'></script>
         <script src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js'></script>
-<script>
+        <script src="/assets/js/d3-tip/index.js"></script>
 
-             var annualized_rate = 'annualized rate',
-             rate_text = ', rate: ',
-             count_text = ', count: ';
+<script type="text/javascript" src="https://www.diegovalle.net/maps/mxc/js/chroma.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
+<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
+<!--[if lt IE 9]>
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+<![endif]-->
+<script src="/assets/js/crosslet.js"></script>
+<script type="text/javascript">
+var percentf=function() { return function(d){ return Math.round(d*100)/100;}}
+var inputf=function() { return function(d){ return Math.round(d*100)/100;}}
+var pref=function() {return function(d){return Math.round(d*100)/100;}}
+var pref2=function() {return function(d){ if(+d<0) return null; return Math.min(d,0.6);}}
+var config = {
+  map: {
+    leaflet: {
+      key: "fe623ce312234f8f9333bbee72d4a176",
+      styleId: 64657,
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> — Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+    },
+    view: {
+      center: [23.5,  -102.1 ],
+      zoom: 5
+    },
+    geo: {
+      url: "/assets/json/municipios-centroids.json",
+      name_field: "name",
+      id_field: "code",
+     // topo_object: "schools"
+    }
+  },
+  data: {
+    version: "1.0",
+    id_field: "code"
+  },
+  dimensions: {
+    min: {
+      title: "Homicide Rate",
+      data: {
+        dataSet: "/assets/json/municipios-centroids.csv",
+        field: "rate2",
+	method: d3.csv,
+	//preformat: pref,
+	colorscale:  d3.scale.sqrt().domain([1.000000,  3.222222,  5.444444,  7.666667,  9.888889, 12.111111, 14.333333, 16.555556, 18.777778]).range(["#D73027", "#F46D43", "#FDAE61", "#FEE090", "#FFFFBF", "#E0F3F8", "#ABD9E9",
+ "#74ADD1", "#4575B4"]).range(["#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c", "#bd0026", "#800026"])
+ ,
+    opacity: 1
+
+ },
+      format:{
+        //short: percentf,
+	//input: inputf
+      },
+    },
+
+
+  },
+  defaults: {
+
+    colorscale: d3.scale.sqrt().domain([1,20]).range(["black", "black"]).interpolate(d3.cie.interpolateLab),
+    opacity: 1,
+    order: ["min"],
+    active: "min"
+  },
+};
+
+
+a=new crosslet.MapView($("#hom-map"),config);
 </script>
-        <script>
-        var selected_value = 'hd', muns;
-        var monthNames = [
-                "Jan", "Feb", "Mar",
-                "Apr", "May", "Jun", "Jul",
-                "Aug", "Sep", "Oct",
-                "Nov", "Dec"
-        ];
-        var round = d3.format(".1f");
-        var format=d3.time.format('%b %Y')
-        var draw_line_chart = function(){
-                groups=_.groupBy(muns[selected_value], function(x) {return x.name});
-                byrate = _.map(groups, function(g, key) {
-                        return { name: key,
-                                rate: _.reduce(g, function(m,x) { return (x.rate === null ? m : x.rate); }, 0) };
-                        });
-                        muns_ordered = _.pluck(_.sortBy(byrate, "rate"), "name").reverse();
-
-                        _.map(muns_ordered, function(x) {
-                                if (document.getElementById('line' + x.replace(/ |\./g, '')
-                                .replace(/,/g, '')) === null) {
-                                        $('<div  class="3u 12u(mobile)" ><div class ="line-chart" id="'+ 'line' + x.replace(/ |\./g, '')
-                                        .replace(/,/g, '') +'"></div></div>').appendTo('#small-multiples');
-                                }
-                        });
-                        $('.line-chart').each(function(index, obj){
-                $(obj).attr('id', 'line' + muns_ordered[index].replace(/ |\./g, '')
-                                                                .replace(/,/g, ''));
-            });
-
-
-                        var filterCrime = function(data, name) {
-                                data = _.filter(data, { 'name': name });
-                                if (typeof(data[0].date) !== 'object')
-                                  data = MG.convert.date(data, 'date');
-                                return(data)
-                        }
-                        max_rate = _.max(muns[selected_value], 'rate')['rate'];
-
-
-                        var line_chart = function(data, title, target) {
-                                var line_options = {
-                                        height: 150,
-                                        max_y: max_rate,
-                                        area: false,
-                                        full_width: true,
-                                        left: 70,
-                                        buffer: 0,
-                                        // width:281,
-                                        //missing_is_hidden: true,
-                                        interpolate: "linear",
-                                        x_accessor: 'date',
-                                        y_accessor: 'rate',
-                                        small_text: true,
-                                        xax_count: 3,
-                                        xax_format: d3.time.format('%b'),
-                                        y_extended_ticks: true,
-                                        y_label: annualized_rate,
-                                        mouseover: function(d, i) {
-                                                var date = new Date(d.date);
-                                                var day = d.date.getDate();
-                                                var monthIndex = d.date.getMonth();
-                                                var year = d.date.getFullYear();
-                                                d3.select("#line" + target.replace(/ |\./g, '')
-                                                .replace(/,/g, '') + ' svg .mg-active-datapoint')
-                                                .text(monthNames[monthIndex] + '-' + year + rate_text + round(d.rate) + count_text + d.count);
-                                        },
-                                };
-                                line_options.data = line_values;
-                                line_options.title = title;
-                                line_options.target = "#line" + target.replace(/ |\./g, '')
-                                .replace(/,/g, '');
-                                MG.data_graphic(line_options);
-                        }
-                        //console.time("concatenation");
-                        _.forEach(muns_ordered, function(x) {
-                                line_values = filterCrime(muns[selected_value], x);
-                                line_chart(line_values, x, x)
-                                return
-                        });
-        }
-        d3.json('/assets/json/municipios.json', function(data) {
-                muns = data;
-                draw_line_chart();
-
-
-                });
-
-                $('#crimeSelect').on('change', function() {
-                        selected_value = this.value;
-                        $("body").addClass("loading");
-                        draw_line_chart();
-                        $("body").removeClass("loading");
-                });
-        </script>
         </body>
 </html>

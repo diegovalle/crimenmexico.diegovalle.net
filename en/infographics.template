@@ -58,7 +58,12 @@
                                                                                                 </ul>
                                                                                         </li> -->
                                                                                         <li><a href="/en/states.html">States</a></li>
-                                                                                        <li><a href="/en/municipios.html">Municipios</a></li>
+                                                                                        <li><a href="#">Municipios</a>
+                                    <ul>
+                                        <li><a href="/en/municipios-map.html">Map</a></li>
+                                        <li><a href="/en/municipios.html">Time Series</a></li>
+                                    </ul>
+                                </li>
                                                                                         <li><a href="/en/anomalies.html">Anomalies</a></li>
                                                                                         <li class="current_page_item"><a href="/en/infographics.html">Infographics</a></li>
                                                                                         <li><a href="/en/datos.html">Data</a></li>
