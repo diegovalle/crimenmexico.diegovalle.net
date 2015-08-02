@@ -140,7 +140,7 @@ z-index:-9999;
                                                 <div class="wrapper">
                                                         <section id="portfolio-preview">
                                                                 <header>
-                                                                        <h2>Mapa de homicidios durante los últimos 6 meses</h2>
+                                                                        <h2>Mapa de homicidios de enero 2015 a junio 2015</h2></h2>
                                                                        <!-- <span class="byline">Charts to explain the drug war</span>-->
                                                                 </header>
                                                                 <div class="row">
@@ -148,7 +148,7 @@ z-index:-9999;
                                 </div>
 
                                                         </section>
-                                                        <p>El color de los círculos representa la tasa de homicidios y el tamaño el número de averiguaciones previas en el municipio. Pueden filtrar los municipios según su tasa de homicidios usando el widget de la esquina superior derecha. Todas las tasas están anualizadas, pero algunos municipios no tienen datos disponibles para todo el período, también algunos municipios reportan como cero su número de homicidios cuando en realidad no han recolectado el dato. La tasa máxima que se muestra en el mapa es de 120 para que sea más fácil su interpretación aunque la tasa real sea mayor</p>
+                                                        <p>El color de los círculos representa la tasa de homicidios y el tamaño el número de averiguaciones previas en el municipio. Pueden filtrar los municipios según su tasa de homicidios usando el widget de la esquina superior derecha. Todas las tasas están anualizadas, pero algunos municipios no tienen datos disponibles para todo el período, también algunos municipios reportan como cero su número de homicidios cuando en realidad no han recolectado el dato. La tasa máxima que se muestra en el mapa es de 120 para que sea más fácil su interpretación aunque la tasa real sea mayor. No todos los municipios proporcionan información y algunos concentran la información de varios municipios.</p>
                                                 </div>
 
                                         <!-- Footer Wrapper -->
@@ -223,7 +223,7 @@ z-index:-9999;
 <!--[if lt IE 9]>
   <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
 <![endif]-->
-<script src="/assets/js/crosslet.js"></script>
+<script src="/assets/js/crosslet.es.js"></script>
 <script type="text/javascript">
 var percentf=function() { return function(d){ return Math.round(d*100)/100;}}
 var inputf=function() { return function(d){ return Math.round(d*100)/100;}}
@@ -253,7 +253,7 @@ var config = {
   },
   dimensions: {
     min: {
-      title: "Homicide Rate",
+      title: "Tasa de Homicidios",
       data: {
         dataSet: "/assets/json/municipios-centroids.csv",
         field: "rate2",

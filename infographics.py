@@ -1,3 +1,5 @@
+# coding: utf-8
+
 import glob
 from datetime import datetime
 import os
@@ -67,7 +69,27 @@ def clean(lang, t):
     f.write(newdata)
     f.close()
 
+    f = open(lang + 'municipios-map.html','r')
+    filedata = f.read()
+    f.close()
+
+    newdata = re.sub('Map of homicides in Mexico [a-zA-Z0-9 ]*',r'Map of homicide in Mexico from ' + datetime.strftime(monthdelta(datetime.strptime(dates[0], "%B %Y"), -5), "%B %Y") + ' to ' + dates[0], filedata)
+    newdata = re.sub('Mapa de homicidios [a-zA-Z0-9 úÚ]*',
+                     r'Mapa de homicidios de ' + datetime.strftime(monthdelta(datetime.strptime(dates[0], "%B %Y"), -5), "%B %Y") + ' a ' + dates[0], newdata)
+    # import pdb;pdb.set_trace()
+
+    f = open(lang + 'municipios-map.html', 'w')
+    f.write(newdata)
+    f.close()
+
+def monthdelta(date, delta):
+    m, y = (date.month+delta) % 12, date.year + ((date.month)+delta-1) // 12
+    if not m: m = 12
+    d = min(date.day, [31,
+        29 if y%4==0 and not y%400==0 else 28,31,30,31,30,31,31,30,31,30,31][m-1])
+    return date.replace(day=d,month=m, year=y)
+
 clean('en/', "C")
 clean('es/', 'es_ES.UTF-8')
 os.system(r"find . -name '*.png' -exec sh -c 'optipng {}' \;")
-os.system(r"cd assets/json; gzip -k *")
+os.system(r"cd assets/json; gzip -k -f *")
