@@ -19,6 +19,14 @@
                  />
 </url>
 <url>
+  <loc>http://crimenmexico.diegovalle.net/en/municipios-map.html</loc>
+<xhtml:link
+                 rel="alternate"
+                 hreflang="es"
+                 href="http://crimenmexico.diegovalle.net/es/municipios-map.html"
+                 />
+</url>
+<url>
   <loc>http://crimenmexico.diegovalle.net/en/datos.html</loc>
 <xhtml:link
                  rel="alternate"
@@ -56,6 +64,14 @@
                  rel="alternate"
                  hreflang="en"
                  href="http://crimenmexico.diegovalle.net/en/municipios.html"
+                 />
+</url>
+<url>
+  <loc>http://crimenmexico.diegovalle.net/es/municipios-map.html</loc>
+<xhtml:link
+                 rel="alternate"
+                 hreflang="en"
+                 href="http://crimenmexico.diegovalle.net/en/municipios-map.html"
                  />
 </url>
 <url>
