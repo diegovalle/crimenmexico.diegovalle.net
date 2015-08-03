@@ -377,7 +377,7 @@ width: 275,
              });
          }
 
-         d3.json("/assets/json/mx_hexgrid.json", function(json) {
+         d3.json("/assets/json/mx_hexgrid.geojson", function(json) {
              d3.json("/assets/json/states_last.json", function(states_last) {
                  d3.json('/assets/json/states.json', function(states) {
                      format=d3.time.format('%b %Y')
