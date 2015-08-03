@@ -31,11 +31,11 @@ button:hover {
 .OrRd .q8-9{fill:rgb(127,0,0)}
 
 .national-chart svg{
-  background-image: url(http://localhost:8883/assets/css/images/bg01-blue.png);
+  background-image: url(/assets/css/images/bg01-blue.png);
   border-radius: 10px;
 }
 .line-chart svg{
-  background-image: url(http://localhost:8883/assets/css/images/bg01-brown.png);
+  background-image: url(/assets/css/images/bg01-brown.png);
   border-radius: 10px;
 }
 .d3-tip {
@@ -149,7 +149,7 @@ ul, ol {
 #small-multiples-hom svg ,#small-multiples-rvcv svg,
 #small-multiples-rvsv svg, #small-multiples-lesions svg,
 #small-multiples-ext svg, #small-multiples-kidnapping svg{
-  background-image: url(http://localhost:8883/assets/css/images/bg01-brown.png);
+  background-image: url(/assets/css/images/bg01-brown.png);
   border-radius: 10px;
 }
 .mg-x-axis .label, .mg-y-axis .label, .mg-axis .label {
