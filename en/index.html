@@ -372,7 +372,7 @@ width: 275,
                      var monthIndex = d.date.getMonth();
                      var year = d.date.getFullYear();
                      d3.select(target + ' svg .mg-active-datapoint')
-                       .text(monthNames[monthIndex] + '-' + year + rate_text + round(d.rate) + count_text + d.count);
+                       .text(monthNames[monthIndex] + '-' + year + rate_text + round(d.rate) + count_text + comma(d.count));
                  },
              });
          }
@@ -474,6 +474,7 @@ width: 275,
                         })
                         .style("stroke-width", "1")
                         .style("stroke", "transparent")
+                        .style("opacity", "0")
                         .style("fill", "transparent")
 
                          legend = d3.select('#legend')

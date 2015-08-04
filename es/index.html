@@ -6,7 +6,7 @@ License: pixelarity.com/license
 -->
 <html>
     <head>
-        <title>Delincuencia en México</title>
+        <title>Crimen en México</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -73,7 +73,7 @@ License: pixelarity.com/license
                         <!-- Logo -->
                         <a href="#" id="logo">
 
-                            <h1>Delincuencia en México</h1>
+                            <h1>Crimen en México</h1>
                             <h2>Reporte mensual sobre criminalidad en México</h2>
                         </a>
 
@@ -175,8 +175,8 @@ License: pixelarity.com/license
                     <p style="text-align:left;">Cada mes el <a href="http://secretariadoejecutivo.gob.mx/index.php">Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública</a>
                         publica información de incidencia delictiva en su sitio web. Este sitio web descarga, procesa y presenta los datos de una manera fácil de interpretar.</p><br>
                     <p style="text-align:left;">
-                        Los secuestros, homicidios y extorsiones refieren el número de victimas, pero los robos de vehículo las averiguaciones previas. Desde enero
-del 2015 los datos de secuestro incluyen víctimas a nivel federal. Guerro reporta el número de averiguaciones como si fueran número de víctimas.
+                        Los secuestros, homicidios y extorsiones refieren el número de víctimas, pero los robos de vehículo las averiguaciones previas. Desde enero
+del 2015 los datos de secuestro incluyen víctimas a nivel federal. Guerrero reporta el número de averiguaciones como si fueran número de víctimas.
 Según la ENVIPE las extorsiones han aumentado, pero según el SNSP las extorsiones han bajado. Los robos de vehículo sí coinciden con la
 tendencia de la ENVIPE, los homicidios también coinciden en tendencia con datos del INEGI/SSA</p>
                     </section></div>
@@ -369,7 +369,7 @@ width: 275,
                      var monthIndex = d.date.getMonth();
                      var year = d.date.getFullYear();
                      d3.select(target + ' svg .mg-active-datapoint')
-                       .text(monthNames[monthIndex] + '-' + year + rate_text + round(d.rate) + count_text + d.count);
+                       .text(monthNames[monthIndex] + '-' + year + rate_text + round(d.rate) + count_text + comma(d.count));
                  },
              });
          }
@@ -471,6 +471,7 @@ width: 275,
                         })
                         .style("stroke-width", "1")
                         .style("stroke", "transparent")
+                        .style("opacity", "0")
                         .style("fill", "transparent")
 
                          legend = d3.select('#legend')

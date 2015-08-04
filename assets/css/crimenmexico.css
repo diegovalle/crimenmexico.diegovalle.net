@@ -111,6 +111,10 @@ ul, ol {
   font-family: 'Source Sans Pro';
   font-weight: 700;
   color: #555;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
 
 .select-style select:focus {
