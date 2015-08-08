@@ -144,7 +144,7 @@ ul, ol {
   stroke: black;
   stroke-width: .5px;
 }
-.bubble {
+.bubble, .swatch {
   fill-opacity: .6;
   stroke: #fff;
   stroke-width: .2px;

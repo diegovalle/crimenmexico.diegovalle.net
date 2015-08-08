@@ -479,9 +479,22 @@ License: pixelarity.com/license
                                  .attr("d",path);
 
                      max_count = _.max(cities[crime], 'count')['count'];
+                     min_count = _.min(cities[crime], 'count')['count'];
                      var radius = d3.scale.sqrt()
-                                    .domain([0, max_count])
-                                    .range([0, 8]);
+                                    .domain([min_count, max_count])
+                                    .range([4, 8]);
+                     var cellnum = min_count == max_count ? 1 : min_count + 1 == max_count ? 2 : 3;
+                     var sizeLegend = d3.legend.size()
+                                        .labelFormat(d3.format(".0f"))
+                                        .scale(radius)
+                                        .shape("circle")
+                                        .shapePadding(3)
+                                        .cells(cellnum)
+                                        .labelOffset(10);
+                     vis.append("g")
+                        .attr("transform", "translate(250, 60)")
+                        .call(sizeLegend);
+
                      tip = d3.tip().attr('class', 'd3-tip')
                              .offset([-10, 0])
                              .html(function(d) {
