@@ -12,7 +12,7 @@ License: pixelarity.com/license
 
         <!-- Schema.org markup for Google+ -->
         <meta itemprop="name" content="Mexico Crime Report">
-        <meta itemprop="description" content="Monthly report on Mexican crime">
+        <meta itemprop="description" content="Monthly report on Mexican crime (statistics on homicides, kidnappings, extortions and many more crimes)">
         <meta itemprop="image" content="http://crimenmexico.diegovalle.net/en/images/infographics/thumbnails/infographic_jun_2015.png">
 
         <!-- Twitter Card data -->
@@ -465,12 +465,7 @@ width: 275,
                             national_chart({'rvcv': _.filter(states.rvcv, {'state_code':d.properties.state_code})},'rvcv', '#nat_rvcv', rvcv + d.properties.state_abbr);
                             national_chart({'rvsv': _.filter(states.rvsv, {'state_code':d.properties.state_code})},'rvsv', '#nat_rvsv', rvsv + d.properties.state_abbr);
                             d3.select("#crime_charts").text(stateNames[d.properties.state_abbr])
-                                d3.select("#nat_" + 'hd' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                                d3.select("#nat_" + 'ext' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                                d3.select("#nat_" + 'sec' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                                d3.select("#nat_" + 'rvcv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                                d3.select("#nat_" + 'rvsv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                                d3.select("#nat_" + selected_value + ' .mg-chart-title').style('color', 'white').style('background-color', 'black')
+                            change_small_multiples(selected_value);
                         })
                         .style("stroke-width", "1")
                         .style("stroke", "transparent")
@@ -508,18 +503,14 @@ width: 275,
          d3.json('/assets/json/national.json', function(data) {
              national = data;
              create_national_charts();
+             change_small_multiples(selected_value);
          });
 
          //d3.select(window).on('resize', resize);
          d3.select('#reset').on('click', function(d) {
              create_national_charts();
              d3.select("#crime_charts").text(national_text)
-                 d3.select("#nat_" + 'hd' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + 'ext' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + 'sec' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + 'rvcv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + 'rvsv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + selected_value + ' .mg-chart-title').style('color', 'white').style('background-color', 'black')
+             change_small_multiples(selected_value);
          })
              function resize() {
                  // adjust things when the window size changes
@@ -545,13 +536,23 @@ width: 275,
          $('#crimeSelect').on('change', function() {
              change_map(this.value); // or $(this).val()
              selected_value = this.value;
-             d3.select("#nat_" + 'hd' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + 'ext' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + 'sec' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + 'rvcv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + 'rvsv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent')
-                 d3.select("#nat_" + this.value + ' .mg-chart-title').style('color', 'white').style('background-color', 'black')
+             change_small_multiples(selected_value);
          });
+
+         change_small_multiples = function(selected_value) {
+             d3.select("#nat_" + 'hd' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
+             d3.select("#nat_" + 'ext' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
+             d3.select("#nat_" + 'sec' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
+             d3.select("#nat_" + 'rvcv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
+             d3.select("#nat_" + 'rvsv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
+             d3.select("#nat_" + selected_value + ' .mg-chart-title').style('color', 'white').style('background-color', 'black');
+             d3.select("#nat_" + 'hd' + ' svg').style("background-image", "url(/assets/css/images/bg01-blue.png");
+             d3.select("#nat_" + 'ext' + ' svg').style("background-image", "url(/assets/css/images/bg01-blue.png");
+             d3.select("#nat_" + 'sec' + ' svg').style("background-image", "url(/assets/css/images/bg01-blue.png");
+             d3.select("#nat_" + 'rvcv' + ' svg').style("background-image", "url(/assets/css/images/bg01-blue.png");
+             d3.select("#nat_" + 'rvsv' + ' svg').style("background-image", "url(/assets/css/images/bg01-blue.png");
+             d3.select("#nat_" + selected_value + ' svg').style("background-image", "url(/assets/css/images/bg01-brown.png");
+         }
 
          change_map = function(value){
              extent = d3.extent(last_date[value], function(d) {return d.rate});
