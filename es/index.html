@@ -192,7 +192,7 @@ tendencia de la ENVIPE, los homicidios también coinciden en tendencia con datos
                                 <div class="6u 12u(mobile)"><a href="/es/images/infographics/fulls/municipios_es_jun_2015.png" class=" fit"><img src="/es/images/infographics/thumbnails/municipios_es_jun_2015.png" alt=""></a></div>
                             </div>
                             <footer>
-                                <a href="infographics.html" class="button button-alt">Ver Más Infográficas</a>
+                                <a href="es/infographics.html" class="button button-alt">Ver Más Infográficas</a>
                             </footer>
                         </section>
                     </div>
@@ -210,7 +210,7 @@ tendencia de la ENVIPE, los homicidios también coinciden en tendencia con datos
                                         <p>Detectar municipios con una cantidad inusual de crímenes debería de ser una de las estrategias del gobierno para combatir el crimen.
                                             Este sitio web ayuda a monitorear los picos criminales para que el gobierno los pueda atender (LOL).</p>
                                         <footer>
-                                            <a href="anomalies.html" class="button">Ver Más</a>
+                                            <a href="es/anomalies.html" class="button">Ver Más</a>
                                         </footer>
                                     </section>
                                 </div>
@@ -379,7 +379,7 @@ width: 275,
              d3.json("/assets/json/states_last.json", function(states_last) {
                  d3.json('/assets/json/states.json', function(states) {
                      format=d3.time.format('%b %Y')
-                         d3.select('#map-date').html('Map of Crime in Mexico - ' + format(d3.time.format('%Y-%m-%d').parse(states_last.hd[0].date)))
+                         d3.select('#map-date').html('Mapa del crimen - ' + format(d3.time.format('%Y-%m-%d').parse(states_last.hd[0].date)))
 
 
                          last_date = states_last;
