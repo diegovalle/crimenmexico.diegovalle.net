@@ -55,13 +55,13 @@ def clean(lang, t):
     filedata = f.read()
     f.close()
 
-    newdata = re.sub(r'href="/[a-z]/images/infographics/fulls/infographic_[a-z_]+_[0-9]+.png"',
+    newdata = re.sub(r'href="/[a-z]+/images/infographics/fulls/infographic_[a-z_]+_[0-9]+.png"',
                      'href="/' + files_inf[0].replace('thumbnails', 'fulls') + '"', filedata)
-    newdata = re.sub(r'src="/[a-z]/images/infographics/thumbnails/infographic_[a-z_]+_[0-9]+.png"',
+    newdata = re.sub(r'src="/[a-z]+/images/infographics/thumbnails/infographic_[a-z_]+_[0-9]+.png"',
                     'src="/' +  files_inf[0] + '"', newdata)
-    newdata = re.sub(r'href="/[a-z]/images/infographics/fulls/municipios_[a-z_]+_[0-9]+.png"',
+    newdata = re.sub(r'href="/[a-z]+/images/infographics/fulls/municipios_[a-z_]+_[0-9]+.png"',
                      'href="/' + files_mun[0].replace('thumbnails','fulls') + '"', newdata)
-    newdata = re.sub(r'src="/[a-z]/images/infographics/thumbnails/municipios_[a-z_]+_[0-9]+.png"',
+    newdata = re.sub(r'src="/[a-z]+/images/infographics/thumbnails/municipios_[a-z_]+_[0-9]+.png"',
                      'src="/' + files_mun[0] + '"', newdata)
     # newdata = filedata.replace("{{INFOGRAPHICS}}", s)
 
