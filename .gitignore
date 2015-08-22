@@ -2,3 +2,5 @@
 *.csv.gz
 *.gz
 *.zip
+en/images/infographics/thumbnails/*
+es/images/infographics/thumbnails/*
