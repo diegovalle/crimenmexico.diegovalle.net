@@ -2011,7 +2011,7 @@
 				top: 0;
 				width: 275px;
 				z-index: 10002;
-				background: #444 url("images/overlay.png");
+				/*background: #444 url("images/overlay.png");*/
 				box-shadow: inset -3px 0px 4px 0px rgba(0, 0, 0, 0.1);
 			}
 
