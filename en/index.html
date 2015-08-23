@@ -402,7 +402,8 @@ width: 275,
                                  index = _.findIndex(states_last[selected_value], function(chr) {
                                      return chr.state_code == d.properties.state_code;
                                  });
-                                 return "<strong>"+rate+"</strong> <span style='color:white'>" + round(states_last[selected_value][index].rate) + "</span><br>" +
+                                 return "<strong>" + states_last[selected_value][index].state + "</strong><br>" +
+                                        "<strong>"+rate+"</strong> <span style='color:white'>" + round(states_last[selected_value][index].rate) + "</span><br>" +
                                         "<strong>"+count+"</strong> <span style='color:white'>" + states_last[selected_value][index].count + "</span><br>" +
                                         "<strong>"+pop+"</strong> <span style='color:white'>" + comma(states_last[selected_value][index].population) + "</span><br>";
                              });
@@ -458,7 +459,8 @@ width: 275,
                         .on('mouseover', tip.show)
                         .on('mouseout', tip.hide)
                         .on('click', function(d) {
-
+                            d3.selectAll("#hexmap g path").style("stroke", "black").style("opacity", "0").style("stroke-width", "0")
+                            d3.select(this).style("stroke", "black").style("opacity", "1").style("stroke-width", "4px")
                             national_chart({'hd': _.filter(states.hd, {'state_code':d.properties.state_code})}, 'hd', '#nat_hd', homicidio_doloso  + d.properties.state_abbr);
                             national_chart({'sec': _.filter(states.sec, {'state_code':d.properties.state_code})},'sec', '#nat_sec', secuestro + d.properties.state_abbr);
                             national_chart({'ext': _.filter(states.ext, {'state_code':d.properties.state_code})},'ext', '#nat_ext', extorsion + d.properties.state_abbr);
@@ -510,6 +512,7 @@ width: 275,
          d3.select('#reset').on('click', function(d) {
              create_national_charts();
              d3.select("#crime_charts").text(national_text)
+             d3.selectAll("#hexmap g path").style("stroke", "black").style("opacity", "0").style("stroke-width", "0")
              change_small_multiples(selected_value);
          })
              function resize() {
