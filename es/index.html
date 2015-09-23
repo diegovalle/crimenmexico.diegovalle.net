@@ -542,12 +542,12 @@ width: 275,
          });
 
          change_small_multiples = function(selected_value) {
-             d3.select("#nat_" + 'hd' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
-             d3.select("#nat_" + 'ext' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
-             d3.select("#nat_" + 'sec' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
-             d3.select("#nat_" + 'rvcv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
-             d3.select("#nat_" + 'rvsv' + ' .mg-chart-title').style('color', '#555').style('background-color', 'transparent');
-             d3.select("#nat_" + selected_value + ' .mg-chart-title').style('color', 'white').style('background-color', 'black');
+             d3.select("#nat_" + 'hd' + ' .mg-chart-title').style('color', '#555').style('background-color', '#B8E4E4').style('border-top-left-radius', '7px').style('border-top-right-radius', '7px');
+             d3.select("#nat_" + 'ext' + ' .mg-chart-title').style('color', '#555').style('background-color', '#B8E4E4').style('border-top-left-radius', '7px').style('border-top-right-radius', '7px');
+             d3.select("#nat_" + 'sec' + ' .mg-chart-title').style('color', '#555').style('background-color', '#B8E4E4').style('border-top-left-radius', '7px').style('border-top-right-radius', '7px');
+             d3.select("#nat_" + 'rvcv' + ' .mg-chart-title').style('color', '#555').style('background-color', '#B8E4E4').style('border-top-left-radius', '7px').style('border-top-right-radius', '7px');
+             d3.select("#nat_" + 'rvsv' + ' .mg-chart-title').style('color', '#555').style('background-color', '#B8E4E4').style('border-top-left-radius', '7px').style('border-top-right-radius', '7px');
+             d3.select("#nat_" + selected_value + ' .mg-chart-title').style('color', 'white').style('background-color', 'black').style('border-top-left-radius', '7px').style('border-top-right-radius', '7px');
              d3.select("#nat_" + 'hd' + ' svg').style("background-image", "url(/assets/css/images/bg01-blue.png");
              d3.select("#nat_" + 'ext' + ' svg').style("background-image", "url(/assets/css/images/bg01-blue.png");
              d3.select("#nat_" + 'sec' + ' svg').style("background-image", "url(/assets/css/images/bg01-blue.png");
