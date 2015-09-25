@@ -51,6 +51,14 @@
                  />
 </url>
 <url>
+  <loc>http://crimenmexico.diegovalle.net/en/infographics.html</loc>
+<xhtml:link
+                 rel="alternate"
+                 hreflang="es"
+                 href="http://crimenmexico.diegovalle.net/es/infographics.html"
+                 />
+</url>
+<url>
   <loc>http://crimenmexico.diegovalle.net/es/</loc>
 <xhtml:link
                  rel="alternate"
@@ -98,6 +106,13 @@
                  href="http://crimenmexico.diegovalle.net/en/anomalies.html"
                  />
 </url>
-
+<url>
+  <loc>http://crimenmexico.diegovalle.net/es/infographics.html</loc>
+<xhtml:link
+                 rel="alternate"
+                 hreflang="es"
+                 href="http://crimenmexico.diegovalle.net/en/infographics.html"
+                 />
+</url>
 
 </urlset>
