@@ -355,7 +355,7 @@ License: pixelarity.com/license
                      if (document.getElementById('line' + x.replace(/ |\./g, '')
                                                            .replace(/,/g, '')) === null) {
                                                                $('<div  class="3u 12u(mobile)" ><div class =' + id + ' id="'+ 'line' + x.replace(/ |\./g, '')
-                                                                                                                                        .replace(/,/g, '') +'"></div></div>').appendTo(id);
+                                                                                                                                        .replace(/,/g, '') + crime_type + '"></div></div>').appendTo(id);
                      }
                  });
                  $('.' + id.replace(/#/g, '')).each(function(index, obj){
@@ -401,14 +401,14 @@ License: pixelarity.com/license
                              var monthIndex = d.date.getMonth();
                              var year = d.date.getFullYear();
                              d3.select("#line" + target.replace(/ |\./g, '')
-                                                       .replace(/,/g, '') + ' svg .mg-active-datapoint')
+                                                       .replace(/,/g, '') + crime_type + ' svg .mg-active-datapoint')
                                .text(monthNames[monthIndex] + '-' + year + rate_text + round(d.rate) + count_text + d.count);
                          },
                      };
                      line_options.data = line_values;
                      line_options.title = title.split(",")[0].substring(0, 14) + ', ' + title.split(",")[1];
                      line_options.target = "#line" + target.replace(/ |\./g, '')
-                                                           .replace(/,/g, '');
+                                                           .replace(/,/g, '') + crime_type;
                      MG.data_graphic(line_options);
                  }
                  //console.time("concatenation");
