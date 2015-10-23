@@ -12,7 +12,7 @@ License: pixelarity.com/license
 
         <!-- Schema.org markup for Google+ -->
         <meta itemprop="name" content="Mexico Crime Report">
-        <meta itemprop="description" content="Interactive map and monthly report on Mexican crime (statistics on homicides, kidnappings, extortions and many more crimes)">
+        <meta itemprop="description" content="Interactive map and monthly report on Mexican crime (statistics on homicides, kidnappings, extortions and many more crimes) - Diego Valle-Jones">
         <meta itemprop="image" content="http://crimenmexico.diegovalle.net/en/images/infographics/thumbnails/infographic_jun_2015.png">
 
         <!-- Twitter Card data -->
@@ -155,7 +155,7 @@ License: pixelarity.com/license
                                     <button id="reset">Reset to national rates</button>
                                 </header>
                                 <div class="row">
-                                    <div class="6u 12u(mobile) national-chart"><div id="nat_hd"></div></div>
+                                    <div class="12u 12u(mobile) national-chart"><div id="nat_hd"></div></div>
                                     <div class="6u 12u(mobile) national-chart"><div id="nat_sec"></div></div>
                                     <div class="6u 12u(mobile) national-chart"><div id="nat_ext"></div></div>
                                     <div class="6u 12u(mobile) national-chart"><div id="nat_rvcv"></div></div>
@@ -381,7 +381,7 @@ width: 275,
              d3.json("/assets/json/states_last.json", function(states_last) {
                  d3.json('/assets/json/states.json', function(states) {
                      format=d3.time.format('%b %Y')
-                         d3.select('#map-date').html('Map of Rates of Crime - ' + format(d3.time.format('%Y-%m-%d').parse(states_last.hd[0].date)))
+                         d3.select('#map-date').html('Map of Crime Rates - ' + format(d3.time.format('%Y-%m-%d').parse(states_last.hd[0].date)))
 
 
                          last_date = states_last;
