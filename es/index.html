@@ -189,8 +189,8 @@ tendencia de la ENVIPE, los homicidios también coinciden en tendencia con datos
                                 <span class="byline">Gráficas que explican la guerra contra el narco</span>
                             </header>
                             <div class="row">
-                                <div class="6u 12u(mobile)"><a href="/es/images/infographics/fulls/infographic_es_oct_2015.png" class=" fit"><img src="/es/images/infographics/thumbnails/infographic_es_oct_2015.png" alt=""></a></div>
-                                <div class="6u 12u(mobile)"><a href="/es/images/infographics/fulls/municipios_es_oct_2015.png" class=" fit"><img src="/es/images/infographics/thumbnails/municipios_es_oct_2015.png" alt=""></a></div>
+                                <div class="6u 12u(mobile)"><a href="/es/images/infographics/fulls/infographic_es_feb_2016.png" class=" fit"><img src="/es/images/infographics/thumbnails/infographic_es_feb_2016.png" alt=""></a></div>
+                                <div class="6u 12u(mobile)"><a href="/es/images/infographics/fulls/municipios_es_feb_2016.png" class=" fit"><img src="/es/images/infographics/thumbnails/municipios_es_feb_2016.png" alt=""></a></div>
                             </div>
                             <footer>
                                 <a href="/es/infographics.html" class="button button-alt">Ver Más Infográficas</a>
@@ -319,7 +319,7 @@ tendencia de la ENVIPE, los homicidios también coinciden en tendencia con datos
                            "NAY":"NAYARIT",
                            "NL":"NUEVO LEON","OAX":"OAXACA","PUE":"PUEBLA","QRO":"QUERETARO","QROO":"QUINTANA ROO","SLP":"SAN LUIS POTOSI",
                            "SIN":"SINALOA","SON":"SONORA","TAB":"TABASCO","TAM":"TAMAULIPAS","TLAX":"TLAXCALA",
-                           "VER":"VERACRUZ","YUC":"YUCATAN","ZAC":"ZACATECAS"}
+                           "VER":"VERACRUZ","YUC":"YUCATAN","ZAC":"ZACATECAS"};
          var Reds = ["#fff5f0","#fee0d2","#fcbba1","#fc9272","#fb6a4a","#ef3b2c","#cb181d","#a50f15","#67000d"];
          var round = d3.format(".1f");
          var comma = d3.format(",");
@@ -337,7 +337,7 @@ tendencia de la ENVIPE, los homicidios también coinciden en tendencia con datos
              return(d3.scale.quantize()
                       .domain(domain)
                       .range(d3.range(9).map(function(i) { return 'q' + i + "-9"; })));
-         }
+         };
          national_chart = function(data, obj, target, title) {
              hom = JSON.parse(JSON.stringify(data))[obj];
              hom = MG.convert.date(hom, 'date');
@@ -421,7 +421,7 @@ width: 275,
 
                      // new projection
                      projection = d3.geo.mercator().center(center)
-                                    .scale(scale*.89).translate(offset);
+                                    .scale(scale * 0.89).translate(offset);
                      path = path.projection(projection);
                      vis.call(tip)
                          vis.selectAll("path").data(json.features).enter().append("path")

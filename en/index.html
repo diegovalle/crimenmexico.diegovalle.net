@@ -189,8 +189,8 @@ License: pixelarity.com/license
                                 <span class="byline">Charts to explain the drug war</span>
                             </header>
                             <div class="row">
-                                <div class="6u 12u(mobile)"><a href="/en/images/infographics/fulls/infographic_oct_2015.png" class="fit"><img src="/en/images/infographics/thumbnails/infographic_oct_2015.png" alt=""></a></div>
-                                <div class="6u 12u(mobile)"><a href="/en/images/infographics/fulls/municipios_oct_2015.png" class=" fit"><img src="/en/images/infographics/thumbnails/municipios_oct_2015.png" alt=""></a></div>
+                                <div class="6u 12u(mobile)"><a href="/en/images/infographics/fulls/infographic_feb_2016.png" class="fit"><img src="/en/images/infographics/thumbnails/infographic_feb_2016.png" alt=""></a></div>
+                                <div class="6u 12u(mobile)"><a href="/en/images/infographics/fulls/municipios_feb_2016.png" class=" fit"><img src="/en/images/infographics/thumbnails/municipios_feb_2016.png" alt=""></a></div>
                             </div>
                             <footer>
                                 <a href="infographics.html" class="button button-alt">View More Infographics</a>
@@ -321,7 +321,7 @@ Don't believe anything the government tells you until you check out this website
                            "NAY":"NAYARIT",
                            "NL":"NUEVO LEON","OAX":"OAXACA","PUE":"PUEBLA","QRO":"QUERETARO","QROO":"QUINTANA ROO","SLP":"SAN LUIS POTOSI",
                            "SIN":"SINALOA","SON":"SONORA","TAB":"TABASCO","TAM":"TAMAULIPAS","TLAX":"TLAXCALA",
-                           "VER":"VERACRUZ","YUC":"YUCATAN","ZAC":"ZACATECAS"}
+                           "VER":"VERACRUZ","YUC":"YUCATAN","ZAC":"ZACATECAS"};
          var Reds = ["#fff5f0","#fee0d2","#fcbba1","#fc9272","#fb6a4a","#ef3b2c","#cb181d","#a50f15","#67000d"];
          var round = d3.format(".1f");
          var comma = d3.format(",");
@@ -339,7 +339,7 @@ Don't believe anything the government tells you until you check out this website
              return(d3.scale.quantize()
                       .domain(domain)
                       .range(d3.range(9).map(function(i) { return 'q' + i + "-9"; })));
-         }
+         };
          national_chart = function(data, obj, target, title) {
              hom = JSON.parse(JSON.stringify(data))[obj];
              hom = MG.convert.date(hom, 'date');
@@ -423,7 +423,7 @@ width: 275,
 
                      // new projection
                      projection = d3.geo.mercator().center(center)
-                                    .scale(scale*.89).translate(offset);
+                                    .scale(scale * 0.89).translate(offset);
                      path = path.projection(projection);
                      vis.call(tip)
                          vis.selectAll("path").data(json.features).enter().append("path")

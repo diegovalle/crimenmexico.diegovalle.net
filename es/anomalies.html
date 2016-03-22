@@ -347,7 +347,7 @@ License: pixelarity.com/license
              "Nov", "Dec"
          ];
          var round = d3.format(".1f");
-         var format=d3.time.format('%b %Y')
+         var format=d3.time.format('%b %Y');
              var draw_line_chart = function(crime_type, id){
                  groups=_.groupBy(muns[crime_type], function(x) {return x.name});
                  byrate = _.map(groups, function(g, key) {
@@ -458,7 +458,7 @@ License: pixelarity.com/license
 
 
                      projection = d3.geo.mercator().center(center)
-                                    .scale(scale*.89).translate(offset);
+                                    .scale(scale*0.89).translate(offset);
                      path = path.projection(projection);
 
                      //Group for the map features
@@ -475,7 +475,7 @@ License: pixelarity.com/license
                      //Update map on zoom/pan
                      function zoomed() {
                          features.attr("transform", "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")")
-                                 .selectAll("path").style("stroke-width", .5 / zoom.scale() + "px" );
+                                 .selectAll("path").style("stroke-width", 0.5 / zoom.scale() + "px" );
                      }
 
                      features.selectAll("path")
@@ -530,41 +530,42 @@ License: pixelarity.com/license
              });
          });
 
+         $( window ).load(function() {
+             d3.json('/assets/json/anomalies.json', function(data) {
+                 muns = data;
+                 if (muns['hom'].length !== 0) {
+                     d3.select('#hom').text('Homicidio Intencional').style('padding', '10px');
+                     draw_line_chart('hom', '#small-multiples-hom');
+                 }
+                 if (muns['rvcv'].length !== 0) {
+                     d3.select('#rvcv').text('Robo de Vehículo con Violencia').style('padding', '10px');
+                     draw_line_chart('rvcv', '#small-multiples-rvcv');
+                 }
+                 if (muns['rvsv'].length !== 0) {
+                     d3.select('#rvsv').text('Robo de Vehículo sin Violencia').style('padding', '10px');
+                     draw_line_chart('rvsv', '#small-multiples-rvsv');
+                 }
+                 if (muns['lesions'].length !== 0) {
+                     d3.select('#lesions').text('Lesiones Intencionales').style('padding', '10px');
+                     draw_line_chart('lesions', '#small-multiples-lesions');
+                 }
+                 if (muns['kidnapping'].length !== 0) {
+                     d3.select('#kidnapping').text('Secuestro').style('padding', '10px');
+                     draw_line_chart('kidnapping', '#small-multiples-kidnapping');
+                 }
+                 if (muns['ext'].length !== 0) {
+                     d3.select('#ext').text('Extorsiones').style('padding', '10px');
+                     draw_line_chart('ext', '#small-multiples-ext');
+                 }
 
-         d3.json('/assets/json/anomalies.json', function(data) {
-             muns = data;
-             if (muns['hom'].length !== 0) {
-                 d3.select('#hom').text('Homicidio Intencional').style('padding', '10px');
-                 draw_line_chart('hom', '#small-multiples-hom');
-             }
-             if (muns['rvcv'].length !== 0) {
-                 d3.select('#rvcv').text('Robo de Vehículo con Violencia').style('padding', '10px');
-                 draw_line_chart('rvcv', '#small-multiples-rvcv');
-             }
-             if (muns['rvsv'].length !== 0) {
-                 d3.select('#rvsv').text('Robo de Vehículo sin Violencia').style('padding', '10px');
-                 draw_line_chart('rvsv', '#small-multiples-rvsv');
-             }
-             if (muns['lesions'].length !== 0) {
-                 d3.select('#lesions').text('Lesiones Intencionales').style('padding', '10px');
-                 draw_line_chart('lesions', '#small-multiples-lesions');
-             }
-             if (muns['kidnapping'].length !== 0) {
-                 d3.select('#kidnapping').text('Secuestro').style('padding', '10px');
-                 draw_line_chart('kidnapping', '#small-multiples-kidnapping');
-             }
-             if (muns['ext'].length !== 0) {
-                 d3.select('#ext').text('Extorsiones').style('padding', '10px');
-                 draw_line_chart('ext', '#small-multiples-ext');
-             }
+             });
 
-         });
-
-         $('#crimeSelect').on('change', function() {
-             selected_value = this.value;
-             $("body").addClass("loading");
-             draw_line_chart();
-             $("body").removeClass("loading");
+             $('#crimeSelect').on('change', function() {
+                 selected_value = this.value;
+                 $("body").addClass("loading");
+                 draw_line_chart();
+                 $("body").removeClass("loading");
+             });
          });
         </script>
     </body>
